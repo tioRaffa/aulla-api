@@ -7,7 +7,8 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'title',
-        'url'
+        'url',
+        'active'
     ]
     ordering = [
         '-id'
@@ -20,7 +21,8 @@ class ReviewAdmin(admin.ModelAdmin):
         'id',
         'course',
         'name',
-        'rating'
+        'rating',
+        'active'
     ]
     ordering = [
         '-id'
