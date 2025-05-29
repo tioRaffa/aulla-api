@@ -1,12 +1,12 @@
 from django.urls import path
-from courses.views import CourseApiView, ReviewApiView
+from courses.views import CoursesApiView, ReviewsApiView
 
 urlpatterns = [
     # CURSOS
-    path('courses/', CourseApiView.as_view(), name='courses'),
+    path('courses/', CoursesApiView.as_view(), name='courses'),
     
     # AVALIAÇÕES
-    path('reviews/', ReviewApiView.as_view(), name='reviews'),
+    path('reviews/', ReviewsApiView.as_view(), name='reviews'),
 ]
 
 
