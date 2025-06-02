@@ -4,11 +4,14 @@ from courses.views import CoursesApiView, CourseApiView, ReviewsApiView, ReviewA
 urlpatterns = [
     # CURSOS
     path('courses/', CoursesApiView.as_view(), name='courses'),
-    path('course/<int:pk>/', CourseApiView.as_view(), name='course'),
+    path('courses/<int:pk>/', CourseApiView.as_view(), name='course'),
+
+    path('courses/<int:course_pk>/reviews/', ReviewsApiView.as_view(), name='course reviews'),
+    path('courses/<int:course_pk>/reviews/<int:review_pk>/', ReviewApiView.as_view(), name='course review'),
     
     # AVALIAÇÕES
     path('reviews/', ReviewsApiView.as_view(), name='reviews'),
-    path('review/<int:pk>/', ReviewApiView.as_view(), name='review'),
+    path('reviews/<int:review_pk>/', ReviewApiView.as_view(), name='review'),
 ]
 
 

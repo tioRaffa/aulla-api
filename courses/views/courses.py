@@ -10,4 +10,5 @@ class CoursesApiView(generics.ListCreateAPIView):
 
 
 class CourseApiView(generics.RetrieveUpdateDestroyAPIView):
-    pass
+    queryset = CourseModels.objects.all()
+    serializer_class = CourseSerializer
