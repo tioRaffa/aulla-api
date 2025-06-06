@@ -24,6 +24,16 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     
 class CourseSerializer(serializers.ModelSerializer):
+
+    # reviews = ReviewSerializer(many=True, read_only=True)
+
+    reviews = serializers.HyperlinkedRelatedField(
+        many=True,
+        read_only=True,
+        view_name='review-detail'
+    )
+
+
     class Meta:
         model = CourseModels
         fields = [
@@ -33,4 +43,5 @@ class CourseSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
             'active',
+            'reviews',
         ]

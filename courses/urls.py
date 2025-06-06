@@ -23,4 +23,4 @@ router = SimpleRouter()
 router.register('courses', CoursesApiViewSets)
 
 # AVALIAÇÕES / V2
-router.register('reviews', ReviewsApiViewSets)
+router.register('reviews', ReviewsApiViewSets, basename='review')
