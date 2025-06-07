@@ -22,6 +22,7 @@ class ReviewSerializer(serializers.ModelSerializer):
             'active',
         ]
 
+
     
 class CourseSerializer(serializers.ModelSerializer):
 
@@ -45,3 +46,4 @@ class CourseSerializer(serializers.ModelSerializer):
             'active',
             'reviews',
         ]
+        

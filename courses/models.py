@@ -15,6 +15,9 @@ class CourseModels(Base):
     title = models.CharField(max_length=150)
     url = models.URLField(unique=True)
 
+    class Meta:
+        ordering = ['id']
+
     def __str__(self):
         return self.title
     
@@ -28,6 +31,7 @@ class ReviewModels(Base):
 
     class Meta:
         unique_together = ['email', 'course']
+        ordering = ['id']
 
     def __str__(self):
         return f'{self.name} rated the {self.course} course with a score of {self.rating}'
