@@ -1,4 +1,6 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
+from courses.permissions import IsSuperUser
+
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -7,6 +9,12 @@ from courses.serializers import CourseSerializer, ReviewSerializer
 
 
 class CoursesApiViewSets(viewsets.ModelViewSet):
+
+    permission_classes = (
+        IsSuperUser,
+        permissions.DjangoModelPermissions, 
+        )
+
     queryset = CourseModels.objects.all()
     serializer_class = CourseSerializer
 
@@ -14,7 +22,7 @@ class CoursesApiViewSets(viewsets.ModelViewSet):
     @action(detail=True, methods=['get'])
     def reviews(self, request, pk=None):
 
-        self.pagination_class.page_size = 1
+        self.pagination_class.page_size = 2
         reviews = ReviewModels.objects.filter(course_id=pk)
         page = self.paginate_queryset(reviews)
 
